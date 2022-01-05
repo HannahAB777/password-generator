@@ -17,9 +17,9 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 
-the site is fully functional with no errors and when open it looks as the screenshot shows below.
+after reply to all prompts the page loads as the screenshot shows below.
 
 ![image](https://user-images.githubusercontent.com/93077324/148217311-4ab1d437-565b-4293-8954-e7d3469aa39d.png)
 
 
-
+link to page: https://hannahab777.github.io/password-generator/
