@@ -43,7 +43,7 @@ function getRandomSymbol() {
     const symbols = '!@#$%^&*(){}[]=<>/,.'
     return symbols[Math.floor(Math.random() * symbols.length)];
 }
-//passwordoutput
+//passwordoutput from 
 var characterset = "";
 if (!!addNumbers){
    characterset = characterset + getRandomNumber();
@@ -61,16 +61,15 @@ if (!!addUppercase){
  //loop for character
  var password = '';
  for (let index = 0; index < passwordLength; index++) {
-    const randomCharacter = characterset[ Math.floor(Math.random() * characterset.length) ]
+    var randomCharacter = characterset[ Math.floor(Math.random() * characterset.length) ]
      password = password + randomCharacter;
  }
 
- //var for text area to input password
+ console.log(password);
+//var for text area to input password
+var randompassword = document.getElementById('#passwordoutput');
+randompassword.textContent = "";
 //add password text
-//add event lisenter for password button
-//passwordBttn.addEventListener('click', function(event){
-
-
-
-//});
-//if it has x run that function
+passwordBttn.addEventListener('click', function(){
+randompassword.textContent = password;
+});
