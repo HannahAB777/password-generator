@@ -21,55 +21,61 @@ var addsymbols = window.confirm('would you like to add symbols?'); //to add symb
     if (!addNumbers&&!addUppercase&&!addLowercase&&!addsymbols) {
         alert('error, please select at least one character type.');
     }
+    //targeting the text box for the password output
+    var randomPassword = document.getElementById('#passwordoutput');
+
+    //length of password
+    var passwordLength = Number(numberOfCharacters);
+    //create functions for each type of character
+    //numbers
+    function getRandomNumber() {
+        return +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+    }
+    function getRandomUpper() {
+        return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+    }
+    //lowercase
+    function getRandomLower() {
+        return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+    }
+    //symbols
+    function getRandomSymbol() {
+        const symbols = '!@#$%^&*(){}[]=<>/,.';
+        return symbols[Math.floor(Math.random() * symbols.length)];
+    }
+    //passwordoutput from 
+    var characterset = "";
+    if (!!addNumbers) {
+        characterset = characterset + getRandomNumber();
+    }
+    if (!!addUppercase) {
+        characterset = characterset + getRandomUpper();
+    }
+    if (!!addLowercase) {
+        characterset = characterset + getRandomLower();
+    }
+    if (!!addsymbols) {
+        characterset = characterset + getRandomSymbol();
+    }
+
+    //loop for character
+    var password = '';
+    for (let index = 0; index < passwordLength; index++) {
+        var randomCharacter = characterset[Math.floor(Math.random() * characterset.length)];
+        password = password + randomCharacter;
+    }
+
+    console.log(password);
+
 //create var for gernerate password button
 var passwordBttn = document.getElementById('#generate');
-//length of password
-var passwordLength = Number(numberOfCharacters);
-//create functions for each type of character
-//numbers
-function getRandomNumber() {
-    return +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
-//uppercase
-function getRandomUpper() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
-//lowercase
-function getRandomLower() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
-//symbols
-function getRandomSymbol() {
-    const symbols = '!@#$%^&*(){}[]=<>/,.'
-    return symbols[Math.floor(Math.random() * symbols.length)];
-}
-//passwordoutput from 
-var characterset = "";
-if (!!addNumbers){
-   characterset = characterset + getRandomNumber();
-}
-if (!!addUppercase){
-    characterset = characterset + getRandomUpper();
- }
- if (!!addLowercase){
-    characterset = characterset + getRandomLower();
- }
- if (!!addsymbols){
-    characterset = characterset + getRandomSymbol();
- }
- 
- //loop for character
- var password = '';
- for (let index = 0; index < passwordLength; index++) {
-    var randomCharacter = characterset[ Math.floor(Math.random() * characterset.length) ]
-     password = password + randomCharacter;
- }
 
- console.log(password);
-//var for text area to input password
-var randompassword = document.getElementById('#passwordoutput');
-randompassword.textContent = "";
-//add password text
-passwordBttn.addEventListener('click', function(){
-randompassword.textContent = password;
+//clickon eventlistener
+passwordBttn.addEventListener("click", function(){
+    var newPassword = document.getElementById('#passwordoutput').textContent;
+    newPassword = password;
 });
+
+
+
+
