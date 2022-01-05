@@ -22,7 +22,7 @@ var addsymbols = window.confirm('would you like to add symbols?'); //to add symb
         alert('error, please select at least one character type.');
     }
     //targeting the text box for the password output
-    var randomPassword = document.getElementById('#passwordoutput');
+    var randomPassword = document.getElementById('passwordoutput');
 
     //length of password
     var passwordLength = Number(numberOfCharacters);
@@ -43,7 +43,7 @@ var addsymbols = window.confirm('would you like to add symbols?'); //to add symb
         const symbols = '!@#$%^&*(){}[]=<>/,.';
         return symbols[Math.floor(Math.random() * symbols.length)];
     }
-    //passwordoutput from 
+    //passwordoutput from choice of characters
     var characterset = "";
     if (!!addNumbers) {
         characterset = characterset + getRandomNumber();
@@ -68,12 +68,12 @@ var addsymbols = window.confirm('would you like to add symbols?'); //to add symb
     console.log(password);
 
 //create var for gernerate password button
-var passwordBttn = document.getElementById('#generate');
+var passwordBttn = document.getElementById('generate');
 
 //clickon eventlistener
 passwordBttn.addEventListener("click", function(){
-    var newPassword = document.getElementById('#passwordoutput').textContent;
-    newPassword = password;
+    document.getElementById('passwordoutput').textContent = password;
+    
 });
 
 
