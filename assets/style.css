@@ -97,7 +97,7 @@ button{
   float: right;
 }
 
-#password {
+#passwordoutput {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
