@@ -1,5 +1,7 @@
 //confirm number of characters
-var numberOfCharacters = window.prompt('how many characters would you like to add', 'type a number between 8-128');
+function generatePassword(){
+
+    var numberOfCharacters = window.prompt('how many characters would you like to add', 'type a number between 8-128');
     //if not a number or outside of 8-128 return an error message
     if (isNaN(numberOfCharacters)){
         alert('invalid selection, please enter a number');
@@ -64,15 +66,17 @@ var addsymbols = window.confirm('would you like to add symbols?'); //to add symb
         var randomCharacter = characterset[Math.floor(Math.random() * characterset.length)];
         password = password + randomCharacter;
     }
+    document.getElementById('passwordoutput').textContent = password;
+}
 
-    console.log(password);
+    
 
 //create var for gernerate password button
 var passwordBttn = document.getElementById('generate');
 
 //clickon eventlistener
 passwordBttn.addEventListener("click", function(){
-    document.getElementById('passwordoutput').textContent = password;
+    generatePassword();
     
 });
 
